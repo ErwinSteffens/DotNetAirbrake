@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0-*",
+  "description": "Contains middelware to report exceptions to an Airbrake API",
+  "packOptions": {
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/erwinsteffens/DotNetAirbrake"
+    },
+    "tags": [
+      "aspnetcore",
+      "airbrake",
+      "exception"
+    ]
+  },
+
+  "frameworks": {
+    "netstandard1.5": {
+      "imports": [
+        "dotnet5.4",
+        "net46"
+      ]
+    }
+  },
+
+  "dependencies": {
+    "System.Net.Http": "4.0.0",
+    "Microsoft.AspNetCore.Http": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Hosting": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Logging": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Options": "1.0.0-rc2-final",
+    "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc2-final",
+    "Newtonsoft.Json": "8.0.3",
+    "Scrutor": "1.7.0",
+    "Flurl.Http": "0.10.1"
+  }
+}
