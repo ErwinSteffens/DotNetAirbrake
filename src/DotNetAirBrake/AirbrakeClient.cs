@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace DotNetAirbrake
 {
@@ -111,6 +112,7 @@ namespace DotNetAirbrake
                 {
                     JsonSerializer = new NewtonsoftJsonSerializer(new JsonSerializerSettings
                     {
+                        ContractResolver = new CamelCasePropertyNamesContractResolver(),
                         NullValueHandling = NullValueHandling.Ignore
                     })
                 }

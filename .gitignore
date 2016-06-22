@@ -238,9 +238,6 @@ FakesAssemblies/
 **/*.Server/ModelManifest.xml
 _Pvt_Extensions
 
-# Paket dependency manager
-paket.exe
-
 # FAKE - F# Make
 .fake/
 
@@ -258,3 +255,6 @@ output
 
 # Ignore minified files
 *.min.*
+
+# Project file
+project.lock.json

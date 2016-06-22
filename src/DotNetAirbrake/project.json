@@ -40,7 +40,6 @@
     "Microsoft.Extensions.Options": "1.0.0-rc2-final",
     "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc2-final",
     "Newtonsoft.Json": "8.0.3",
-    "Scrutor": "1.7.0",
     "Flurl.Http": "0.10.1"
   }
 }

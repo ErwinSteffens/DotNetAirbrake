@@ -365,19 +365,6 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "Scrutor/1.7.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc2-final",
-          "System.Reflection.Extensions": "4.0.1-rc2-24027"
-        },
-        "compile": {
-          "lib/netstandard1.0/Scrutor.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/Scrutor.dll": {}
-        }
-      },
       "System.Buffers/4.0.0-rc2-24027": {
         "type": "package",
         "compile": {
@@ -478,15 +465,6 @@
         }
       },
       "System.Reflection/4.1.0-rc2-24027": {
-        "type": "package",
-        "compile": {
-          "ref/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        }
-      },
-      "System.Reflection.Extensions/4.0.1-rc2-24027": {
         "type": "package",
         "compile": {
           "ref/net45/_._": {}
@@ -1085,19 +1063,6 @@
       },
       "runtime.native.System.Security.Cryptography/4.0.0-rc2-24027": {
         "type": "package"
-      },
-      "Scrutor/1.7.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc2-final",
-          "System.Reflection.Extensions": "4.0.1-rc2-24027"
-        },
-        "compile": {
-          "lib/netstandard1.0/Scrutor.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/Scrutor.dll": {}
-        }
       },
       "System.AppContext/4.1.0-rc2-24027": {
         "type": "package",
@@ -2488,16 +2453,6 @@
         "dotnet_library_license.txt",
         "runtime.native.System.Security.Cryptography.4.0.0-rc2-24027.nupkg.sha512",
         "runtime.native.System.Security.Cryptography.nuspec"
-      ]
-    },
-    "Scrutor/1.7.0": {
-      "sha512": "N+qc89eWDyjfbg53nHAhfHHdEhXlzGcd6ZjBYtdXfkgzYh2aY+m2b9p3/54ZE7tphWeKNqcSSGO6DpJBASyqgA==",
-      "type": "package",
-      "files": [
-        "Scrutor.1.7.0.nupkg.sha512",
-        "Scrutor.nuspec",
-        "lib/netstandard1.0/Scrutor.dll",
-        "lib/netstandard1.0/Scrutor.xml"
       ]
     },
     "System.AppContext/4.1.0-rc2-24027": {
@@ -5564,8 +5519,7 @@
       "Microsoft.Extensions.Logging >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Options >= 1.0.0-rc2-final",
       "Microsoft.Extensions.PlatformAbstractions >= 1.0.0-rc2-final",
-      "Newtonsoft.Json >= 8.0.3",
-      "Scrutor >= 1.7.0"
+      "Newtonsoft.Json >= 8.0.3"
     ],
     ".NETFramework,Version=v4.5.1": [
       "System.Net.Http >= 4.0.0"
