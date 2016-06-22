@@ -3,27 +3,6 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
-      "DotNetAirbrake/1.0.0-nuget-test": {
-        "type": "package",
-        "dependencies": {
-          "Flurl.Http": "0.10.1",
-          "Microsoft.AspNetCore.Hosting": "1.0.0-rc2-final",
-          "Microsoft.AspNetCore.Http": "1.0.0-rc2-final",
-          "Microsoft.Extensions.Logging": "1.0.0-rc2-final",
-          "Microsoft.Extensions.Options": "1.0.0-rc2-final",
-          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc2-final",
-          "NETStandard.Library": "1.5.0-rc2-24027",
-          "Newtonsoft.Json": "8.0.3",
-          "Scrutor": "1.7.0",
-          "System.Net.Http": "4.0.1-rc2-24027"
-        },
-        "compile": {
-          "lib/netstandard1.3/DotNetAirBrake.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/DotNetAirBrake.dll": {}
-        }
-      },
       "Flurl/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -3251,43 +3230,32 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "DotNetAirbrake/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.3",
+        "dependencies": {
+          "Flurl.Http": "0.10.1",
+          "Microsoft.AspNetCore.Hosting": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Logging": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Options": "1.0.0-rc2-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc2-final",
+          "NETStandard.Library": "1.5.0-rc2-24027",
+          "Newtonsoft.Json": "8.0.3",
+          "Scrutor": "1.7.0",
+          "System.Net.Http": "4.0.1-rc2-24027"
+        },
+        "compile": {
+          "netstandard1.3/DotNetAirbrake.dll": {}
+        },
+        "runtime": {
+          "netstandard1.3/DotNetAirbrake.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "DotNetAirbrake/1.0.0-nuget-test": {
-      "sha512": "fTmv1xpx27GDL85Bg9mjjR4SHcPEAm+z+VYVngIFY9UvDvwzwWf2SGFzv64s9I2x/cEXxRFNMmDnYDCyjYHSNg==",
-      "type": "package",
-      "files": [
-        "DotNetAirbrake.1.0.0-nuget-test.nupkg.sha512",
-        "DotNetAirbrake.nuspec",
-        "lib/net451/DotNetAirBrake.dll",
-        "lib/net451/DotNetAirBrake.pdb",
-        "lib/netstandard1.3/DotNetAirBrake.dll",
-        "lib/netstandard1.3/DotNetAirBrake.pdb",
-        "src/DotNetAirBrake/AirbrakeClient.cs",
-        "src/DotNetAirBrake/AirbrakeExceptionExtensions.cs",
-        "src/DotNetAirBrake/AirbrakeMiddleware.cs",
-        "src/DotNetAirBrake/AirbrakeMiddlewareExtensions.cs",
-        "src/DotNetAirBrake/AirbrakeOptions.cs",
-        "src/DotNetAirBrake/Builder/AirbrakeMessageBuilder.cs",
-        "src/DotNetAirBrake/Builder/ContextNoticeMessageBuilder.cs",
-        "src/DotNetAirBrake/Builder/FormParamsNoticeMessageBuilder.cs",
-        "src/DotNetAirBrake/Builder/HeadersNoticeMessageBuilder.cs",
-        "src/DotNetAirBrake/Builder/IAirbrakeMessageBuilder.cs",
-        "src/DotNetAirBrake/Builder/INoticeMessageBuilder.cs",
-        "src/DotNetAirBrake/Builder/NotifierNoticeMessageBuilder.cs",
-        "src/DotNetAirBrake/Builder/QueryParamsNoticeMessageBuilder.cs",
-        "src/DotNetAirBrake/Builder/SessionNoticeMessageBuilder.cs",
-        "src/DotNetAirBrake/IAirbrakeClient.cs",
-        "src/DotNetAirBrake/Models/AirbrakeBacktraceItem.cs",
-        "src/DotNetAirBrake/Models/AirbrakeContext.cs",
-        "src/DotNetAirBrake/Models/AirbrakeCreateNoticeMessage.cs",
-        "src/DotNetAirBrake/Models/AirbrakeCreateNoticeResponse.cs",
-        "src/DotNetAirBrake/Models/AirbrakeError.cs",
-        "src/DotNetAirBrake/Models/AirbrakeNotifier.cs"
-      ]
-    },
     "Flurl/2.0.0": {
       "sha512": "7yvoh2arCioXljalQR87DccyFMFRGOfKOv0TI8jKNHUJ6K/fkfFPKH0k5AvFqtT3wgorV3Ks8mF/3pj0KwSttg==",
       "type": "package",
@@ -8822,11 +8790,16 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "DotNetAirbrake/1.0.0": {
+      "type": "project",
+      "path": "../../../../src/DotNetAirbrake/project.json",
+      "msbuildProject": "../../../../src/DotNetAirbrake/DotNetAirbrake.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "DotNetAirbrake >= 1.0.0-nuget-test",
+      "DotNetAirbrake >= 1.0.0-*",
       "Microsoft.AspNetCore.Mvc >= 1.0.0-rc2-final",
       "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Configuration.Binder >= 1.0.0-rc2-final",

@@ -2,7 +2,6 @@
 using DotNetAirbrake.Builder;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Scrutor;
 
 namespace DotNetAirbrake
 {
@@ -27,12 +26,6 @@ namespace DotNetAirbrake
 
             services.AddSingleton<IAirbrakeClient, AirbrakeClient>();
             services.AddSingleton<IAirbrakeMessageBuilder, AirbrakeMessageBuilder>();
-
-            // Add all notice part builders in the assembly
-            services.Scan(s => s.FromAssemblyOf<INoticeMessageBuilder>()
-                                .AddClasses(c => c.AssignableTo<INoticeMessageBuilder>())
-                                .AsMatchingInterface()
-                                .WithSingletonLifetime());
 
             return services;
         }

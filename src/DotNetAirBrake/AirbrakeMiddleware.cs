@@ -25,7 +25,7 @@ namespace DotNetAirbrake
             }
             catch (Exception exc)
             {
-                await this.airbrakeClient.SendAsync(exc);
+                await this.airbrakeClient.SendAsync(exc, context);
                 throw;
             }
         }

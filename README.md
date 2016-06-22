@@ -36,7 +36,7 @@ Create configuration section in `appsettings.json`:
 ```json
 {
   "Airbrake": {
-    "ServerUrl": "https://airbrake.io/",
+    "Url": "https://airbrake.io/",
     "ProjectId": "my-project-id",
     "ProjectKey": "my-project-key"
   }

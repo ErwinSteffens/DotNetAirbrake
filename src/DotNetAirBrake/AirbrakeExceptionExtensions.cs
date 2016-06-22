@@ -15,7 +15,7 @@ namespace DotNetAirbrake
             }
 
             var client = context.RequestServices.GetService<IAirbrakeClient>();
-            return client.SendAsync(exc);
+            return client.SendAsync(exc, context);
         }
     }
 }

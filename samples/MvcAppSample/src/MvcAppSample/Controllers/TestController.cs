@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using DotNetAirbrake;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MvcAppSample.Controllers
 {
-    public class HomeController : Controller
+    public class TestController : Controller
     {
         public void SendExceptionToAirbrake()
         {

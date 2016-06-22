@@ -5,6 +5,7 @@ using DotNetAirbrake.Models;
 using Flurl;
 using Flurl.Http;
 using Flurl.Http.Configuration;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -50,14 +51,14 @@ namespace DotNetAirbrake
             this.Init(serverUrl, projectId, projectKey);
         }
 
-        public async Task SendAsync(Exception exception)
+        public async Task SendAsync(Exception exception, HttpContext context)
         {
             if (exception == null)
             {
                 throw new ArgumentNullException(nameof(exception));
             }
 
-            var notice = this.builder.Create(exception);
+            var notice = this.builder.Create(exception, context);
             await this.SendAsync(notice);
         }
 

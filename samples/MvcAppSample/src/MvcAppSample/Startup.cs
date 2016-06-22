@@ -1,5 +1,4 @@
-﻿using DotNetAirbrake;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +8,8 @@ namespace MvcAppSample
 {
     public class Startup
     {
+        public IConfigurationRoot Configuration { get; }
+
         public Startup(IHostingEnvironment env)
         {
             // Load configuration
@@ -21,21 +22,11 @@ namespace MvcAppSample
             this.Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
-
         public void ConfigureServices(IServiceCollection services)
         {
             // Add Airbrake options from configuration
-            services.AddAirbrake(options => 
-                this.Configuration.GetSection("Airbrake").Bind(options));
-
-            // Add Airbrake options from code
             services.AddAirbrake(options =>
-            {
-                options.ProjectId = "my-airbrake-project-id";
-                options.ProjectKey = "my-airbrake-project-key";
-                options.Url = "https://airbrake.io";
-            });
+                                    this.Configuration.GetSection("Airbrake").Bind(options));
 
             services.AddMvc();
         }
@@ -49,7 +40,7 @@ namespace MvcAppSample
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute("default", "{controller}/{action}/{id?}");
             });
         }
     }

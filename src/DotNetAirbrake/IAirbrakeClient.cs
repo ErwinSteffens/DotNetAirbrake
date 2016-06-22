@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using DotNetAirbrake.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace DotNetAirbrake
 {
@@ -10,7 +11,8 @@ namespace DotNetAirbrake
         ///     Sends the specified exception to Airbrake, the async way.
         /// </summary>
         /// <param name="exception">The exception.</param>
-        Task SendAsync(Exception exception);
+        /// <param name="context">The http context.</param>
+        Task SendAsync(Exception exception, HttpContext context);
 
         /// <summary>
         ///     Sends the specified notice to Airbrake, the async way.
