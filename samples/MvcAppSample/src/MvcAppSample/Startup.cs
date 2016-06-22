@@ -27,7 +27,7 @@ namespace MvcAppSample
         {
             // Add Airbrake options from configuration
             services.AddAirbrake(options => 
-                this.Configuration.GetSection("AirBrake").Bind(options));
+                this.Configuration.GetSection("Airbrake").Bind(options));
 
             // Add Airbrake options from code
             services.AddAirbrake(options =>

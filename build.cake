@@ -1,6 +1,7 @@
-var versionSuffix = Argument("version-suffix", "");
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
+
+var versionSuffix = "nuget-test";
 
 Task("Clean")
     .Does(() =>
@@ -20,7 +21,7 @@ Task("Build")
     .IsDependentOn("Restore")
     .Does(() =>
 {
-    DotNetCoreBuild("./src/DotNetAirBrake", new DotNetCoreBuildSettings
+    DotNetCoreBuild("./src/DotNetAirbrake", new DotNetCoreBuildSettings
     {
         Configuration = configuration,
         VersionSuffix = versionSuffix
@@ -45,7 +46,7 @@ Task("Pack")
         VersionSuffix = versionSuffix
     };
 
-    DotNetCorePack("./src/DotNetAirBrake", settings);
+    DotNetCorePack("./src/DotNetAirbrake", settings);
 });
 
 Task("Default")
