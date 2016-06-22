@@ -1,4 +1,4 @@
-namespace DotNetAirBrake
+namespace DotNetAirbrake
 {
     public class AirbrakeOptions
     {

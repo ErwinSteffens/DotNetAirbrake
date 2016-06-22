@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using DotNetAirBrake.Models;
+using DotNetAirbrake.Models;
 using Microsoft.AspNetCore.Http;
 
-namespace DotNetAirBrake.Builder
+namespace DotNetAirbrake.Builder
 {
     internal class SessionNoticeMessageBuilder : INoticeMessageBuilder
     {

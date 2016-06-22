@@ -1,8 +1,8 @@
-﻿using DotNetAirBrake.Models;
+﻿using DotNetAirbrake.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace DotNetAirBrake.Builder
+namespace DotNetAirbrake.Builder
 {
     internal class QueryParamsNoticeMessageBuilder : INoticeMessageBuilder
     {

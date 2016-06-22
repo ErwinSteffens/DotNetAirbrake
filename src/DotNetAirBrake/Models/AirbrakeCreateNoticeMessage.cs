@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DotNetAirBrake.Models
+namespace DotNetAirbrake.Models
 {
     public class AirbrakeCreateNoticeMessage
     {

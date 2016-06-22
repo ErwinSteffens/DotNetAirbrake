@@ -1,4 +1,4 @@
-namespace DotNetAirBrake.Models
+namespace DotNetAirbrake.Models
 {
     public class AirbrakeCreateNoticeResponse
     {

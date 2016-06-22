@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using DotNetAirBrake.Models;
+using DotNetAirbrake.Models;
 
-namespace DotNetAirBrake
+namespace DotNetAirbrake
 {
     public interface IAirbrakeClient
     {

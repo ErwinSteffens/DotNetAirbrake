@@ -1,8 +1,8 @@
 ﻿using System;
-using DotNetAirBrake.Models;
+using DotNetAirbrake.Models;
 using Microsoft.AspNetCore.Http;
 
-namespace DotNetAirBrake.Builder
+namespace DotNetAirbrake.Builder
 {
     internal class FormParamsNoticeMessageBuilder : INoticeMessageBuilder
     {

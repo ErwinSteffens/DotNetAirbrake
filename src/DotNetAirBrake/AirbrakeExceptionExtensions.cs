@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotNetAirBrake
+namespace DotNetAirbrake
 {
     public static class AirbrakeExceptionExtensions
     {

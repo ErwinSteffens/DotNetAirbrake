@@ -1,6 +1,6 @@
-﻿using DotNetAirBrake.Models;
+﻿using DotNetAirbrake.Models;
 
-namespace DotNetAirBrake.Builder
+namespace DotNetAirbrake.Builder
 {
     public interface INoticeMessageBuilder
     {

@@ -1,7 +1,12 @@
 {
-  "version": "1.0.0-*",
+  "version": "1.0-*",
   "description": "Contains middelware to report exceptions to an Airbrake API",
+  "authors": [
+    "Erwin Steffens"
+  ],
   "packOptions": {
+    "summary": "Contains middelware to report exceptions to an Airbrake API",
+    "projectUrl": "https://github.com/erwinsteffens/DotNetAirbrake",
     "repository": {
       "type": "git",
       "url": "git://github.com/erwinsteffens/DotNetAirbrake"

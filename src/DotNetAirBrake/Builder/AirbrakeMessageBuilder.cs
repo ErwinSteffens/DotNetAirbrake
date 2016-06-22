@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using DotNetAirBrake.Models;
+using DotNetAirbrake.Models;
 
-namespace DotNetAirBrake.Builder
+namespace DotNetAirbrake.Builder
 {
     public class AirbrakeMessageBuilder : IAirbrakeMessageBuilder
     {

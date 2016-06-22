@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using DotNetAirBrake.Builder;
-using DotNetAirBrake.Models;
+using DotNetAirbrake.Builder;
+using DotNetAirbrake.Models;
 using Flurl;
 using Flurl.Http;
 using Flurl.Http.Configuration;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace DotNetAirBrake
+namespace DotNetAirbrake
 {
     public class AirbrakeClient : IAirbrakeClient
     {
@@ -80,7 +80,7 @@ namespace DotNetAirBrake
             }
             catch (FlurlHttpException exc)
             {
-                this.log.LogError("Failed to send exception to AirBrake service", exc);
+                this.log.LogError("Failed to send exception to Airbrake service", exc);
             }
         }
 
@@ -88,15 +88,15 @@ namespace DotNetAirBrake
         {
             if (string.IsNullOrEmpty(projectKey))
             {
-                throw new InvalidOperationException($"{nameof(projectKey)} is empty in AirBrake options");
+                throw new InvalidOperationException($"{nameof(projectKey)} is empty in Airbrake options");
             }
             if (string.IsNullOrEmpty(projectId))
             {
-                throw new InvalidOperationException($"{nameof(projectId)} is empty in AirBrake options");
+                throw new InvalidOperationException($"{nameof(projectId)} is empty in Airbrake options");
             }
             if (string.IsNullOrEmpty(serverUrl))
             {
-                throw new InvalidOperationException($"{nameof(serverUrl)} is empty in AirBrake options");
+                throw new InvalidOperationException($"{nameof(serverUrl)} is empty in Airbrake options");
             }
 
             var url = serverUrl.AppendPathSegments("api/v3/projects").

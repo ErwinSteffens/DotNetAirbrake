@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace DotNetAirBrake
+namespace DotNetAirbrake
 {
     public class AirbrakeMiddleware
     {

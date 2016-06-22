@@ -1,10 +1,10 @@
 ﻿using System;
-using DotNetAirBrake.Builder;
+using DotNetAirbrake.Builder;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Scrutor;
 
-namespace DotNetAirBrake
+namespace DotNetAirbrake
 {
     public static class AirbrakeExtensions
     {

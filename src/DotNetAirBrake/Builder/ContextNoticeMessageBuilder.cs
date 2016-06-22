@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using System.Security.Claims;
-using DotNetAirBrake.Models;
+using DotNetAirbrake.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.PlatformAbstractions;
 
-namespace DotNetAirBrake.Builder
+namespace DotNetAirbrake.Builder
 {
     internal class ContextNoticeMessageBuilder : INoticeMessageBuilder
     {
