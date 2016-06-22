@@ -1,4 +1,4 @@
-var versionSuffix = Argument("version-suffix", "test");
+var versionSuffix = Argument("version-suffix", "");
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
 
