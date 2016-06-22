@@ -5,7 +5,6 @@ var configuration = Argument("configuration", "Release");
 Task("Clean")
     .Does(() =>
 {
-    CleanDirectories("./artifacts");
     CleanDirectories("./src/**/bin");
     CleanDirectories("./src/**/obj");
 });
@@ -21,21 +20,18 @@ Task("Build")
     .IsDependentOn("Restore")
     .Does(() =>
 {
-    var buildSettings = new DotNetCoreBuildSettings
+    DotNetCoreBuild("./src/DotNetAirBrake", new DotNetCoreBuildSettings
     {
         Configuration = configuration,
-        OutputDirectory = "./artifacts/",
         VersionSuffix = versionSuffix
-    };
-
-    DotNetCoreBuild("./src/*", buildSettings);
+    });
 });
 
 Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
 {
-    DotNetCoreTest("./src/*");​ 
+    // TODO
 });
 
 Task("Pack")
@@ -44,7 +40,7 @@ Task("Pack")
 {
     var settings = new DotNetCorePackSettings
     {
-        Configurations = new[] { "Debug", "Release" },
+        Configuration = "Release",
         OutputDirectory = "./output/",
         VersionSuffix = versionSuffix
     };
