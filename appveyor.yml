@@ -2,12 +2,7 @@ version: 1.0.{build}
 pull_requests:
   do_not_increment_build_number: true
 build_script:
-- ps: >-
-    & ./update-version.ps1 -projectFile ./src/DotNetAirbrake/project.json -version {version}
-
-    & ./build.ps1 -target build
-
-    & ./build.ps1 -target pack
+- ps: '& ./build.ps1 -target pack'
 test_script:
 - ps: '& ./build.ps1 -target test'
 artifacts:

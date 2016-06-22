@@ -56,7 +56,6 @@ Task("Version")
     });
 });
 
-
 Task("Pack")
     .IsDependentOn("Version")
     .IsDependentOn("Build")
