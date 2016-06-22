@@ -1,0 +1,15 @@
+version: 1.0.{build}
+build_script:
+- ps: >-
+    & ./build.ps1 -target build
+    & ./build.ps1 -target pack
+test_script:
+- ps: '& ./build.ps1 -target test'
+artifacts:
+- path: output\*.nupkg
+  name: NuGet
+deploy:
+- provider: Environment
+  name: NuGet
+  on:
+    branch: master
