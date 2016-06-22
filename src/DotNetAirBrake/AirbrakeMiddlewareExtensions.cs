@@ -36,5 +36,20 @@ namespace DotNetAirBrake
 
             return services;
         }
+
+        public static IServiceCollection AddAirbrake(this IServiceCollection services, Action<AirbrakeOptions> configure)
+        {
+            if (services == null)
+            {
+                throw new ArgumentNullException(nameof(services));
+            }
+            if (configure == null)
+            {
+                throw new ArgumentNullException(nameof(configure));
+            }
+
+            services.Configure(configure);
+            return services.AddAirbrake();
+        }
     }
 }

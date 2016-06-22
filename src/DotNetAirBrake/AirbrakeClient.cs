@@ -8,7 +8,6 @@ using Flurl.Http.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace DotNetAirBrake
 {
@@ -35,33 +34,44 @@ namespace DotNetAirBrake
             var projectId = options.Value.ProjectId;
             var projectKey = options.Value.ProjectKey;
 
-            if (string.IsNullOrEmpty(serverUrl))
-            {
-                throw new InvalidOperationException($"{nameof(serverUrl)} is empty in AirBrake options");
-            }
-            if (string.IsNullOrEmpty(projectId))
-            {
-                throw new InvalidOperationException($"{nameof(projectId)} is empty in AirBrake options");
-            }
-            if (string.IsNullOrEmpty(projectKey))
-            {
-                throw new InvalidOperationException($"{nameof(projectKey)} is empty in AirBrake options");
-            }
+            this.Init(serverUrl, projectId, projectKey);
+        }
 
-            this.InitializeClient(serverUrl, projectId, projectKey);
+        public AirbrakeClient(
+            IAirbrakeMessageBuilder messageBuilder,
+            ILoggerFactory loggerFactory,
+            string serverUrl,
+            string projectId,
+            string projectKey)
+        {
+            this.log = loggerFactory.CreateLogger<AirbrakeClient>();
+            this.builder = messageBuilder;
+
+            this.Init(serverUrl, projectId, projectKey);
         }
 
         public async Task SendAsync(Exception exception)
         {
+            if (exception == null)
+            {
+                throw new ArgumentNullException(nameof(exception));
+            }
+
             var notice = this.builder.Create(exception);
             await this.SendAsync(notice);
         }
-        
+
         public async Task SendAsync(AirbrakeCreateNoticeMessage notice)
         {
+            if (notice == null)
+            {
+                throw new ArgumentNullException(nameof(notice));
+            }
+
             try
             {
-                var airbrakeResponse = await this.client.PostJsonAsync(notice).
+                var airbrakeResponse = await this.client.
+                                                  PostJsonAsync(notice).
                                                   ReceiveJson<AirbrakeCreateNoticeResponse>();
                 if (this.log.IsEnabled(LogLevel.Debug))
                 {
@@ -70,22 +80,40 @@ namespace DotNetAirBrake
             }
             catch (FlurlHttpException exc)
             {
-                this.log.LogError("Failed to send exception to airbrake.", exc);
+                this.log.LogError("Failed to send exception to AirBrake service", exc);
             }
         }
 
-        private void InitializeClient(string serverUrl, string projectId, string projectKey)
+        private void Init(string serverUrl, string projectId, string projectKey)
         {
+            if (string.IsNullOrEmpty(projectKey))
+            {
+                throw new InvalidOperationException($"{nameof(projectKey)} is empty in AirBrake options");
+            }
+            if (string.IsNullOrEmpty(projectId))
+            {
+                throw new InvalidOperationException($"{nameof(projectId)} is empty in AirBrake options");
+            }
+            if (string.IsNullOrEmpty(serverUrl))
+            {
+                throw new InvalidOperationException($"{nameof(serverUrl)} is empty in AirBrake options");
+            }
+
             var url = serverUrl.AppendPathSegments("api/v3/projects").
                                 AppendPathSegment(projectId).
                                 AppendPathSegment("notices").
                                 SetQueryParam("key", projectKey);
 
-            this.client = new FlurlClient(url);
-            this.client.Settings.JsonSerializer = new NewtonsoftJsonSerializer(new JsonSerializerSettings
-            { 
-                NullValueHandling = NullValueHandling.Ignore
-            });
+            this.client = new FlurlClient(url)
+            {
+                Settings =
+                {
+                    JsonSerializer = new NewtonsoftJsonSerializer(new JsonSerializerSettings
+                    {
+                        NullValueHandling = NullValueHandling.Ignore
+                    })
+                }
+            };
         }
     }
 }
