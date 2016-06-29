@@ -18,7 +18,7 @@ Task("Restore")
     .IsDependentOn("Clean")
     .Does(() =>
 {
-    DotNetCoreRestore();    
+    DotNetCoreRestore("./src/DotNetAirbrake");    
 });
 
 Task("Build")
