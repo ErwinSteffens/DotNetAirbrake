@@ -137,18 +137,16 @@ namespace DotNetAirbrake.Builder
         {
             var request = context.Request;
             var user = context.User;
-            var runtimeEnvironment = PlatformServices.Default.Runtime;
-            var applicationEnvironment = PlatformServices.Default.Application;
 
             notice.Context = new AirbrakeContext
             {
                 Environment = this.hostingEnvironment.EnvironmentName,
                 Url = request.GetDisplayUrl(),
                 UserAgent = request.Headers["User-Agent"],
-                Version = applicationEnvironment.ApplicationVersion,
+                Version = PlatformServices.Default.Application.ApplicationVersion,
                 RootDirectory = this.hostingEnvironment.WebRootPath,
-                Os = $"{runtimeEnvironment.OperatingSystem} {runtimeEnvironment.OperatingSystemVersion}",
-                Language = $"{runtimeEnvironment.RuntimeType} {runtimeEnvironment.RuntimeVersion}",
+                Os = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
+                Language = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription,
                 UserId = user.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value,
                 UserName = user.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value,
                 UserEmail = user.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value
