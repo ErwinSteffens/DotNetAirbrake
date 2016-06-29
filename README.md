@@ -3,6 +3,7 @@
 Airbrake Notifier for ASP.NET MVC 6
 
 AppVeyor 
+
 [![Build status](https://ci.appveyor.com/api/projects/status/ulhdnsd8r4qvge6p?svg=true)](https://ci.appveyor.com/project/ErwinSteffens/dotnetairbrake)
 
 # Why
