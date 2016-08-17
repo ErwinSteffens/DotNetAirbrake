@@ -19,15 +19,9 @@
   },
 
   "frameworks": {
-    "netstandard1.3": {
-      "imports": "dnxcore50",
+    "netstandard1.4": {
       "dependencies": {
         "NETStandard.Library": "1.6.0"
-      }
-    },
-    "net451": {
-      "frameworkAssemblies": {
-        "System.Net.Http": "4.0.0.0"
       }
     }
   },
@@ -38,7 +32,7 @@
     "Microsoft.Extensions.Logging": "1.0.0",
     "Microsoft.Extensions.Options": "1.0.0",
     "Microsoft.Extensions.PlatformAbstractions": "1.0.0",
-    "Newtonsoft.Json": "8.0.3",
-    "Flurl.Http": "0.10.1"
+    "Flurl.Http": "1.0.1",
+    "Newtonsoft.Json": "9.0.1"
   }
 }

@@ -255,6 +255,3 @@ output
 
 # Ignore minified files
 *.min.*
-
-# Project file
-project.lock.json
