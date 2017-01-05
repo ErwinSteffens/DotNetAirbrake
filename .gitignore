@@ -255,3 +255,6 @@ output
 
 # Ignore minified files
 *.min.*
+
+# Mac os files
+.DS_Store

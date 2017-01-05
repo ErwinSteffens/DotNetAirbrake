@@ -1,17 +1,18 @@
 {
   "version": "2.0-*",
-  "description": "Contains client for reporting exceptions to an Airbrake API",
+  "description": "Contains middelware to report exceptions to an Airbrake API",
   "authors": [
     "Erwin Steffens"
   ],
   "packOptions": {
-    "summary": "Contains client for reporting exceptions to an Airbrake API",
+    "summary": "Contains middelware to report exceptions to an Airbrake API",
     "projectUrl": "https://github.com/erwinsteffens/DotNetAirbrake",
     "repository": {
       "type": "git",
       "url": "git://github.com/erwinsteffens/DotNetAirbrake"
     },
     "tags": [
+      "aspnetcore",
       "airbrake",
       "exception"
     ]
@@ -26,10 +27,12 @@
   },
 
   "dependencies": {
+    "DotNetAirbrake": "2.0-*",
+    "Microsoft.AspNetCore.Http": "1.0.0",
+    "Microsoft.AspNetCore.Hosting": "1.0.0",
     "Microsoft.Extensions.Logging": "1.0.0",
     "Microsoft.Extensions.Options": "1.0.0",
     "Microsoft.Extensions.PlatformAbstractions": "1.0.0",
-    "System.Diagnostics.StackTrace": "4.3.0",
     "Flurl.Http": "1.0.1",
     "Newtonsoft.Json": "9.0.1"
   }

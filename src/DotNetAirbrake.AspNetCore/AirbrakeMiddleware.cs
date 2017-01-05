@@ -2,16 +2,16 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace DotNetAirbrake
+namespace DotNetAirbrake.AspNetCore
 {
     public class AirbrakeMiddleware
     {
         private readonly RequestDelegate next;
-        private readonly IAirbrakeClient airbrakeClient;
+        private readonly AirbrakeClient airbrakeClient;
 
         public AirbrakeMiddleware(
             RequestDelegate next,
-            IAirbrakeClient airbrakeClient)
+            AirbrakeClient airbrakeClient)
         {
             this.next = next;
             this.airbrakeClient = airbrakeClient;
@@ -25,7 +25,7 @@ namespace DotNetAirbrake
             }
             catch (Exception exc)
             {
-                await this.airbrakeClient.SendAsync(exc, context);
+                await exc.SendToAirbrakeAsync(context);
                 throw;
             }
         }

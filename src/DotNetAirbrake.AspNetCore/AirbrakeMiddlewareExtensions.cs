@@ -1,9 +1,8 @@
 ﻿using System;
-using DotNetAirbrake.Builder;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotNetAirbrake
+namespace DotNetAirbrake.AspNetCore
 {
     public static class AirbrakeExtensions
     {
@@ -24,8 +23,7 @@ namespace DotNetAirbrake
                 throw new ArgumentNullException(nameof(services));
             }
 
-            services.AddSingleton<IAirbrakeClient, AirbrakeClient>();
-            services.AddSingleton<IAirbrakeMessageBuilder, AirbrakeMessageBuilder>();
+            services.AddSingleton<AirbrakeClient>();
 
             return services;
         }

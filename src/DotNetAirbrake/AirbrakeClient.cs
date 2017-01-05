@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using DotNetAirbrake.Builder;
 using DotNetAirbrake.Models;
 using Flurl;
 using Flurl.Http;
 using Flurl.Http.Configuration;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -13,14 +11,12 @@ using Newtonsoft.Json.Serialization;
 
 namespace DotNetAirbrake
 {
-    public class AirbrakeClient : IAirbrakeClient
+    public class AirbrakeClient
     {
-        private readonly IAirbrakeMessageBuilder builder;
         private readonly ILogger log;
         private FlurlClient client;
 
         public AirbrakeClient(
-            IAirbrakeMessageBuilder messageBuilder,
             ILoggerFactory loggerFactory,
             IOptions<AirbrakeOptions> options)
         {
@@ -30,7 +26,6 @@ namespace DotNetAirbrake
             }
 
             this.log = loggerFactory.CreateLogger<AirbrakeClient>();
-            this.builder = messageBuilder;
 
             var serverUrl = options.Value.Url;
             var projectId = options.Value.ProjectId;
@@ -40,27 +35,14 @@ namespace DotNetAirbrake
         }
 
         public AirbrakeClient(
-            IAirbrakeMessageBuilder messageBuilder,
             ILoggerFactory loggerFactory,
             string serverUrl,
             string projectId,
             string projectKey)
         {
             this.log = loggerFactory.CreateLogger<AirbrakeClient>();
-            this.builder = messageBuilder;
 
             this.Init(serverUrl, projectId, projectKey);
-        }
-
-        public async Task SendAsync(Exception exception, HttpContext context)
-        {
-            if (exception == null)
-            {
-                throw new ArgumentNullException(nameof(exception));
-            }
-
-            var notice = this.builder.Create(exception, context);
-            await this.SendAsync(notice);
         }
 
         public async Task SendAsync(AirbrakeCreateNoticeMessage notice)

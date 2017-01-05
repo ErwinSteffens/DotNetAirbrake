@@ -1,4 +1,4 @@
-﻿namespace DotNetAirbrake.Builder
+﻿namespace DotNetAirbrake
 {
     public static class StringExtensions
     {
