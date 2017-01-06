@@ -19,7 +19,7 @@ Task("Restore")
     .Does(() =>
 {
     DotNetCoreRestore("./src/DotNetAirbrake");    
-    DotNotCoreRestore("./src/DotNetAirbrake.AspNetCore");
+    DotNetCoreRestore("./src/DotNetAirbrake.AspNetCore");
 });
 
 Task("Build")
