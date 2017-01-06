@@ -18,6 +18,25 @@ namespace DotNetAirbrake
 
         public AirbrakeClient(
             ILoggerFactory loggerFactory,
+            AirbrakeOptions options)
+        {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            this.log = loggerFactory.CreateLogger<AirbrakeClient>();
+
+            var serverUrl = options.Url;
+            var projectId = options.ProjectId;
+            var projectKey = options.ProjectKey;
+
+            this.Init(serverUrl, projectId, projectKey);
+        }
+
+
+        public AirbrakeClient(
+            ILoggerFactory loggerFactory,
             IOptions<AirbrakeOptions> options)
         {
             if (options == null)

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using DotNetAirbrake.Models;
 
-namespace DotNetAirbrake.AspNetCore
+namespace DotNetAirbrake
 {
     public static class AirbrakeExceptionExtensions
     {
