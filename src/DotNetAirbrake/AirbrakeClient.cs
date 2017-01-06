@@ -11,7 +11,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace DotNetAirbrake
 {
-    public class AirbrakeClient
+    public class AirbrakeClient : IAirbrakeClient
     {
         private readonly ILogger log;
         private FlurlClient client;
