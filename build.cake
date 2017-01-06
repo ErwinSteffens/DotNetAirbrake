@@ -19,17 +19,21 @@ Task("Restore")
     .Does(() =>
 {
     DotNetCoreRestore("./src/DotNetAirbrake");    
+    DotNotCoreRestore("./src/DotNetAirbrake.AspNetCore");
 });
 
 Task("Build")
     .IsDependentOn("Restore")
     .Does(() =>
 {
-    DotNetCoreBuild("./src/DotNetAirbrake", new DotNetCoreBuildSettings
+    var settings = new DotNetCoreBuildSettings
     {
         Configuration = configuration,
         VersionSuffix = versionSuffix
-    });
+    };
+
+    DotNetCoreBuild("./src/DotNetAirbrake", settings);
+    DotNetCoreBuild("./src/DotNetAirbrake.AspNetCore", settings);
 });
 
 Task("Test")
@@ -51,8 +55,11 @@ Task("Version")
 
     StartPowershellFile("./update-version.ps1", args =>
     {
-        args.Append("projectFile", "./src/DotNetAirbrake/project.json")
-            .Append("version", version);
+        args.Append("projectFile", "./src/DotNetAirbrake/project.json").Append("version", version);
+    });
+    StartPowershellFile("./update-version.ps1", args =>
+    {
+        args.Append("projectFile", "./src/DotNetAirbrake.AspNetCore/project.json").Append("version", version);
     });
 });
 
@@ -64,11 +71,11 @@ Task("Pack")
     var settings = new DotNetCorePackSettings
     {
         Configuration = "Release",
-        OutputDirectory = "./output/",
-        VersionSuffix = versionSuffix
+        OutputDirectory = "./output/"
     };
 
     DotNetCorePack("./src/DotNetAirbrake", settings);
+    DotNetCorePack("./src/DotNetAirbrake.AspNetCore", settings);
 });
 
 Task("Default")
