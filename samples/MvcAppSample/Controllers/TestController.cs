@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using DotNetAirbrake;
+using DotNetAirbrake.AspNetCore;
 
 namespace MvcAppSample.Controllers
 {

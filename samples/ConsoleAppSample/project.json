@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0-*",
+
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true,
+    "copyToOutput": [ "appsettings.json" ]
+  },
+
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.3",
+      "type": "platform"
+    },
+    "DotNetAirbrake": "2.0-*",
+    "Microsoft.Extensions.Logging": "1.0.1",
+    "Microsoft.Extensions.Logging.Console": "1.0.1",
+    "Microsoft.Extensions.Logging.Debug": "1.0.1",
+    "Microsoft.Extensions.Configuration.Binder": "1.0.1",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.1",
+    "Microsoft.Extensions.Configuration.Json": "1.0.1",
+    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.1"
+  },
+
+  "tools": {
+    "Microsoft.Extensions.SecretManager.Tools": {
+      "version": "1.0.0-preview2-final",
+      "imports": "portable-net45+win8+dnxcore50"
+    }
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}

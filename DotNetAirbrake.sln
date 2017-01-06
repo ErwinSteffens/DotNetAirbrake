@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetAirbrake", "src\DotNetAirbrake\DotNetAirbrake.xproj", "{92623090-ED67-49AD-B5A2-ABE1AADEC883}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetAirbrake", "src\DotNetAirbrake\DotNetAirbrake.xproj", "{DF12A7F9-7914-416D-9BD4-F3A393ED9E39}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetAirbrake.AspNetCore", "src\DotNetAirbrake.AspNetCore\DotNetAirbrake.AspNetCore.xproj", "{92623090-ED67-49AD-B5A2-ABE1AADEC883}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{07C41D77-22FE-4240-AB38-9EF43652C5D2}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ConsoleAppSample", "samples\ConsoleAppSample\ConsoleAppSample.xproj", "{0F1260BB-A6F1-4F48-8952-D23E94C0F5F1}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MvcAppSample", "samples\MvcAppSample\MvcAppSample.xproj", "{7D6BBC87-D081-4148-885E-DD5CADCA617A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +19,28 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF12A7F9-7914-416D-9BD4-F3A393ED9E39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF12A7F9-7914-416D-9BD4-F3A393ED9E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF12A7F9-7914-416D-9BD4-F3A393ED9E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF12A7F9-7914-416D-9BD4-F3A393ED9E39}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92623090-ED67-49AD-B5A2-ABE1AADEC883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92623090-ED67-49AD-B5A2-ABE1AADEC883}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92623090-ED67-49AD-B5A2-ABE1AADEC883}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92623090-ED67-49AD-B5A2-ABE1AADEC883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F1260BB-A6F1-4F48-8952-D23E94C0F5F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F1260BB-A6F1-4F48-8952-D23E94C0F5F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F1260BB-A6F1-4F48-8952-D23E94C0F5F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F1260BB-A6F1-4F48-8952-D23E94C0F5F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D6BBC87-D081-4148-885E-DD5CADCA617A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6BBC87-D081-4148-885E-DD5CADCA617A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6BBC87-D081-4148-885E-DD5CADCA617A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6BBC87-D081-4148-885E-DD5CADCA617A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0F1260BB-A6F1-4F48-8952-D23E94C0F5F1} = {07C41D77-22FE-4240-AB38-9EF43652C5D2}
+		{7D6BBC87-D081-4148-885E-DD5CADCA617A} = {07C41D77-22FE-4240-AB38-9EF43652C5D2}
 	EndGlobalSection
 EndGlobal
