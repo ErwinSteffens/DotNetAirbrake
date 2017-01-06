@@ -23,7 +23,7 @@ namespace DotNetAirbrake.AspNetCore
                 throw new ArgumentNullException(nameof(services));
             }
 
-            services.AddSingleton<AirbrakeClient>();
+            services.AddScoped<AirbrakeClient>();
 
             return services;
         }

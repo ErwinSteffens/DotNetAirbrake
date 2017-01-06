@@ -7,14 +7,11 @@ namespace DotNetAirbrake.AspNetCore
     public class AirbrakeMiddleware
     {
         private readonly RequestDelegate next;
-        private readonly AirbrakeClient airbrakeClient;
 
         public AirbrakeMiddleware(
-            RequestDelegate next,
-            AirbrakeClient airbrakeClient)
+            RequestDelegate next)
         {
             this.next = next;
-            this.airbrakeClient = airbrakeClient;
         }
 
         public async Task Invoke(HttpContext context)

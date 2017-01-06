@@ -27,11 +27,7 @@ namespace DotNetAirbrake
 
             this.log = loggerFactory.CreateLogger<AirbrakeClient>();
 
-            var serverUrl = options.Url;
-            var projectId = options.ProjectId;
-            var projectKey = options.ProjectKey;
-
-            this.Init(serverUrl, projectId, projectKey);
+            this.Configure(options);
         }
 
 
@@ -46,11 +42,7 @@ namespace DotNetAirbrake
 
             this.log = loggerFactory.CreateLogger<AirbrakeClient>();
 
-            var serverUrl = options.Value.Url;
-            var projectId = options.Value.ProjectId;
-            var projectKey = options.Value.ProjectKey;
-
-            this.Init(serverUrl, projectId, projectKey);
+            this.Configure(options.Value);
         }
 
         public AirbrakeClient(
@@ -61,7 +53,7 @@ namespace DotNetAirbrake
         {
             this.log = loggerFactory.CreateLogger<AirbrakeClient>();
 
-            this.Init(serverUrl, projectId, projectKey);
+            this.Configure(serverUrl, projectId, projectKey);
         }
 
         public async Task SendAsync(AirbrakeCreateNoticeMessage notice)
@@ -87,7 +79,16 @@ namespace DotNetAirbrake
             }
         }
 
-        private void Init(string serverUrl, string projectId, string projectKey)
+        public void Configure(AirbrakeOptions options)
+        {
+            var serverUrl = options.Url;
+            var projectId = options.ProjectId;
+            var projectKey = options.ProjectKey;
+
+            this.Configure(serverUrl, projectId, projectKey);
+        }
+
+        public void Configure(string serverUrl, string projectId, string projectKey)
         {
             if (string.IsNullOrEmpty(projectKey))
             {
