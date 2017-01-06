@@ -20,6 +20,11 @@ namespace MvcAppSample
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
 
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets();
+            }
+
             this.Configuration = builder.Build();
         }
 
