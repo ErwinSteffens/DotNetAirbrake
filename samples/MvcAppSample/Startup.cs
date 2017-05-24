@@ -22,7 +22,7 @@ namespace MvcAppSample
 
             if (env.IsDevelopment())
             {
-                builder.AddUserSecrets();
+                builder.AddUserSecrets<Startup>();
             }
 
             this.Configuration = builder.Build();
