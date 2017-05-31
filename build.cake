@@ -55,11 +55,11 @@ Task("Version")
 
     StartPowershellFile("./update-version.ps1", args =>
     {
-        args.Append("projectFile", "./src/DotNetAirbrake/project.json").Append("version", version);
+        args.Append("projectFile", "./src/DotNetAirbrake/DotNetAirbrake.csproj").Append("version", version);
     });
     StartPowershellFile("./update-version.ps1", args =>
     {
-        args.Append("projectFile", "./src/DotNetAirbrake.AspNetCore/project.json").Append("version", version);
+        args.Append("projectFile", "./src/DotNetAirbrake.AspNetCore/DotNetAirbrake.AspNetCore.csproj").Append("version", version);
     });
 });
 
