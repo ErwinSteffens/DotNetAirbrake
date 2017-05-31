@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Contains middelware to report exceptions to an Airbrake API</Description>
+    <VersionPrefix>2.0</VersionPrefix>
+    <Authors>Erwin Steffens</Authors>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>DotNetAirbrake.AspNetCore</AssemblyName>
+    <PackageId>DotNetAirbrake.AspNetCore</PackageId>
+    <PackageTags>aspnetcore;airbrake;exception</PackageTags>
+    <PackageProjectUrl>https://github.com/erwinsteffens/DotNetAirbrake</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/erwinsteffens/DotNetAirbrake</RepositoryUrl>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetAirbrake\DotNetAirbrake.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="Flurl.Http" Version="1.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+
+</Project>

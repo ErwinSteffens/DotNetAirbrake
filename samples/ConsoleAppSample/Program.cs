@@ -11,7 +11,7 @@ namespace ConsoleAppSample
         {
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", true, true)
-                .AddUserSecrets();
+                .AddUserSecrets<Program>();
             var config = builder.Build();
 
             var airbrakeOptions = new AirbrakeOptions();
