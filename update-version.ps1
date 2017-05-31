@@ -18,6 +18,6 @@ if (-Not (Test-Path $projectFile)) {
     throw "Could not file project file '$projectFile'"
 }
 
-$object = Get-Content $projectFile | ConvertFrom-Json
-$object.version = $version
-$object | ConvertTo-Json -Depth 20 | Set-Content $projectFile
+$xml = [xml](Get-Content $projectFile)
+$xml.Project.PropertyGroup.Version = "$version"
+$xml.Save($projectFile)
